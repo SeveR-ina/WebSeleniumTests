@@ -1,4 +1,4 @@
-import Pages.ClinicsListPage;
+import Pages.ClinicsPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import static org.testng.Assert.assertNotNull;
 
 public class ClinicsListTests extends BeforeTests {
-    private ClinicsListPage clinicsListPage;
+    private ClinicsPage clinicsPage;
     private String CLINIC;
 
     @Parameters({"browser"})
@@ -24,8 +24,8 @@ public class ClinicsListTests extends BeforeTests {
         getProperties();
         homePage = returnHomePage();
         assertNotNull(homePage);
-        clinicsListPage = homePage.returnClinicsList();
-        assertNotNull(clinicsListPage);
+        clinicsPage = homePage.returnClinicsList();
+        assertNotNull(clinicsPage);
     }
 
     @AfterMethod
@@ -35,9 +35,9 @@ public class ClinicsListTests extends BeforeTests {
 
     @Parameters({"browser"})
     @Test
-    public void findClinic() {
-        clinicsListPage.typeToSearchField(CLINIC);
-        assertNotNull(clinicsListPage.returnFoundClinic());
+    public void findClinic() throws InterruptedException {
+        clinicsPage.typeToSearchField(CLINIC);
+        assertNotNull(clinicsPage.returnFoundClinic(CLINIC));
     }
 
     private void getProperties() {

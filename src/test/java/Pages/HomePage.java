@@ -1,4 +1,6 @@
 package Pages;
+
+import Pages.AdminPages.AdminSignInPage;
 import Pages.ChatsPages.DocChatsPage;
 import Pages.ChatsPages.PatientChatsPage;
 import Pages.ProfilePages.ProfileDocPage;
@@ -25,6 +27,8 @@ public class HomePage extends BasePage {
     private WebElement docsLink;
     @FindBy(css = "a[href='/hospitals']")
     private WebElement clinicsLink;
+    @FindBy(css = "a[href='/new-cp']")
+    private WebElement cpLink;
     @FindBy(xpath = "//input[@type='text']")
     private WebElement searchField;
     @FindBy(xpath = "//a[contains(text(), 'Выход')]")
@@ -99,6 +103,16 @@ public class HomePage extends BasePage {
     public QuestionToDocPage returnQuestionToDocPage() {
         questionToDocBanner.click();
         return PageFactory.initElements(driver, QuestionToDocPage.class);
+    }
+
+    public boolean adminPanelLinkIsVisible() {
+        waitForVisibilityOf(cpLink, returnRandomSeconds());
+        return cpLink.isDisplayed();
+    }
+
+    public AdminSignInPage returnAdminSignInPage() {
+        cpLink.click();
+        return PageFactory.initElements(driver, AdminSignInPage.class);
     }
 
     public boolean ifUserSignedIn() {

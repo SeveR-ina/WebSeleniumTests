@@ -65,7 +65,7 @@ public class ProfileParallelTests extends BeforeTests {
         Assert.assertEquals(CURRENT_PASS_INVALID_ALERT, profilePatientPage.getAlertText());
     }
 
-    @Test(enabled = false)
+    @Test
     public void checkAccessToProfile() {
         driver.get(PROFILE_URL);
         signInPage = PageFactory.initElements(driver, SignInPage.class);

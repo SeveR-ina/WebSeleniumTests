@@ -15,8 +15,8 @@ public class CPChatPage extends BasePage {
     private WebElement cpCommentInput;
     @FindBy(xpath = "(//span[contains(text(), 'Состояние')])/../../span")
     private WebElement chatStatus;
-    /*@FindBy(xpath = "(//div[@class='aor-field aor-field-comment']/div/div)")
-    private WebElement commentText;*/
+    @FindBy(xpath = "(//div[@class='aor-field aor-field-comment']/div/div)")
+    private WebElement commentText;
 
     public CPChatPage(WebDriver driver) {
         super(driver);
@@ -45,8 +45,8 @@ public class CPChatPage extends BasePage {
         return chatStatus.getText();
     }
 
-    /*public String returnCommentText() {
+    public String returnCommentText() {
         return commentText.getText();
-    }*/
+    }
 
 }

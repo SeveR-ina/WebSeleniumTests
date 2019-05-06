@@ -1,4 +1,5 @@
 import Pages.HomePage;
+import Pages.ProfilePages.ProfilePatientPage;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -12,6 +13,7 @@ import static org.testng.Assert.assertNotNull;
 public class UpdatePassTest extends BeforeTests{
     private String PATIENT_LOGIN, PATIENT_PASS,
             PAID_DOC_PASS, PASS_UPDATED_ALERT;
+    private ProfilePatientPage profilePatientPage;
 
     @Parameters({"browser"})
     UpdatePassTest(String browser) throws IOException {
@@ -35,7 +37,7 @@ public class UpdatePassTest extends BeforeTests{
     }
 
     @Test
-    public void updatePass() {
+    public void updatePass() throws InterruptedException {
         setProfilePatientPage();
         updatePass(PATIENT_PASS, PAID_DOC_PASS, PAID_DOC_PASS);
         profilePatientPage.signOut();
@@ -47,8 +49,9 @@ public class UpdatePassTest extends BeforeTests{
         updatePass(PAID_DOC_PASS, PATIENT_PASS, PATIENT_PASS);
     }
 
-    private void setProfilePatientPage() {
-        profilePatientPage = returnPatientProfile(homePage, PATIENT_LOGIN, PATIENT_PASS);
+    private void setProfilePatientPage() throws InterruptedException {
+        homePage = signInAndReturnHomePage(signInPage, PATIENT_LOGIN, PATIENT_PASS);
+        profilePatientPage = homePage.returnProfilePatientPage();
         assertNotNull(profilePatientPage);
     }
 

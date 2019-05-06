@@ -28,7 +28,7 @@ public class AdminSignInPage extends BasePage {
     }
 
     private void typeToLoginAndPass(String login, String pass) {
-        typeToEmailPass(loginField, login, passField, pass);
+        typeEmailPass(loginField, login, passField, pass);
     }
 
     private void submit() {
