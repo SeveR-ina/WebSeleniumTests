@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="All tests" parallel="tests" thread-count="2">
+    <test name="FireFox_Tests" parallel="classes" thread-count="10">
+        <parameter name="browser" value="FireFox"/>
+        <classes>
+            <class name="SignInTests"/>
+            <class name="HomeTests"/>
+            <class name="DocPageTests"/>
+            <class name="ProfileParallelTests"/>
+            <class name="AskPageTest"/>
+            <class name="PayNegativeTests"/>
+            <class name="PassRecoveryTests"/>
+            <class name="CPChatsTests"/>
+            <class name="HospitalListTests"/>
+            <class name="HospitalTests"/>
+        </classes>
+    </test>
+    <test name="Chrome_Tests" parallel="classes" thread-count="10">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="SignInTests"/>
+            <class name="HomeTests"/>
+            <class name="DocPageTests"/>
+            <class name="ProfileParallelTests"/>
+            <class name="AskPageTest"/>
+            <class name="PayNegativeTests"/>
+            <class name="PassRecoveryTests"/>
+            <class name="CPChatsTests"/>
+            <class name="HospitalListTests"/>
+            <class name="HospitalTests"/>
+        </classes>
+    </test>
+    <!--<test name="IE_Tests" parallel="classes" thread-count="10">
+        <parameter name="browser" value="IE"/>
+        <classes>
+            <class name="SignInTests"/>
+            <class name="HomeTests"/>
+            <class name="DocPageTests"/>
+            <class name="ProfileParallelTests"/>
+            <class name="AskPageTest"/>
+            <class name="PayNegativeTests"/>
+            <class name="PassRecoveryTests"/>
+            <class name="CPChatsTests"/>
+            <class name="HospitalListTests"/>
+            <class name="HospitalTests"/>
+        </classes>
+    </test>-->
+</suite>

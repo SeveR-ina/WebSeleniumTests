@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Nonparallel tests">
+    <test name="FireFox_Tests">
+        <parameter name="browser" value="FireFox"/>
+        <classes>
+            <class name="ChatsTests"/>
+            <class name="MinZdravTests"/>
+            <class name="TatneftTests"/>
+            <class name="ProfileUpdateTest"/>
+            <class name="SignUpTests"/>
+            <class name="BestDoctorsTests"/>
+        </classes>
+    </test>
+    <test name="Chrome_Tests">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="ChatsTests"/>
+            <class name="MinZdravTests"/>
+            <class name="TatneftTests"/>
+            <class name="ProfileUpdateTest"/>
+            <class name="SignUpTests"/>
+            <class name="BestDoctorsTests"/>
+        </classes>
+    </test>
+    <!--<test name="IE_Tests">
+        <parameter name="browser" value="IE"/>
+        <classes>
+            <class name="ChatsTests"/>
+            <class name="MinZdravTests"/>
+            <class name="TatneftTests"/>
+            <class name="ProfileUpdateTest"/>
+            <class name="SignUpTests"/>
+            <class name="BestDoctorsTests"/>
+        </classes>
+    </test>-->
+</suite>
