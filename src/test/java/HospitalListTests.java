@@ -40,6 +40,6 @@ public class HospitalListTests extends BeforeTests {
     }
 
     private void getProperties() {
-        CLINIC = testProperties.getProperty("clinic");
+        CLINIC = testProperties.getProperty("sampleClinic");
     }
 }

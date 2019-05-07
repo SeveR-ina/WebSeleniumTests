@@ -11,13 +11,13 @@ import java.io.IOException;
 
 import static org.testng.Assert.assertNotNull;
 
-public class AskPageTest extends BeforeTests {
+public class AskPageTests extends BeforeTests {
     private HomePage homePage;
     private QuestionForPage questionPage;
     private String SUPPORT_FIO, PATIENT_PASS, PATH_TO_FILE;
 
     @Parameters({"browser"})
-    AskPageTest(String browser) throws IOException {
+    AskPageTests(String browser) throws IOException {
         super(browser);
     }
 

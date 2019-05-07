@@ -23,7 +23,7 @@ public class PassRecoveryPage extends BasePage {
         return errorAlert.getText();
     }
 
-    public void sendLogin(String login){
+    public void sendLogin(String login) {
         sendKeys(loginField, login);
     }
 

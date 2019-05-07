@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import static org.testng.Assert.assertNotNull;
 
-public class UpdatePassTest extends BeforeTests{
+public class UpdatePassTest extends BeforeTests {
     private String PATIENT_LOGIN, PATIENT_PASS,
             PAID_DOC_PASS, PASS_UPDATED_ALERT;
     private ProfilePatientPage profilePatientPage;

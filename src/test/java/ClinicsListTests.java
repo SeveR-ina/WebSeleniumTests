@@ -10,7 +10,7 @@ import static org.testng.Assert.assertNotNull;
 
 public class ClinicsListTests extends BeforeTests {
     private ClinicsPage clinicsPage;
-    private String CLINIC;
+    private String SAMPLE_CLINIC;
 
     @Parameters({"browser"})
     ClinicsListTests(String browser) throws IOException {
@@ -33,14 +33,13 @@ public class ClinicsListTests extends BeforeTests {
         this.quitBrowser();
     }
 
-    @Parameters({"browser"})
     @Test
     public void findClinic() throws InterruptedException {
-        clinicsPage.typeToSearchField(CLINIC);
-        assertNotNull(clinicsPage.returnFoundClinic(CLINIC));
+        clinicsPage.typeToSearchField(SAMPLE_CLINIC);
+        assertNotNull(clinicsPage.returnFoundClinic(SAMPLE_CLINIC));
     }
 
     private void getProperties() {
-        CLINIC = testProperties.getProperty("clinic");
+        SAMPLE_CLINIC = testProperties.getProperty("sampleClinic");
     }
 }

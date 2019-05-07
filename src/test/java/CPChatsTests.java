@@ -13,7 +13,7 @@ import java.io.IOException;
 import static org.testng.Assert.assertNotNull;
 
 public class CPChatsTests extends BeforeTests {
-    private String ADMIN_LOGIN, ADMIN_PASS, GASTRO_DOC, CP_URL, TAT_NAME,
+    private String ADMIN_LOGIN, ADMIN_PASS, SAMPLE_DOC, CP_URL, TAT_NAME,
             CORPORATION_OPTION_ZERO, FILTER_CORP;
     private String TATNEFT_ADMIN, TAT_ADM_PASS;
     private CPChatsPage cpChatsPage;
@@ -46,8 +46,8 @@ public class CPChatsTests extends BeforeTests {
     @Test
     public void findChatByDoc() {
         signInOnCP(cpSignInPage, ADMIN_LOGIN, ADMIN_PASS);
-        cpChatsPage.searchChatByDoc(GASTRO_DOC);
-        WebElement chatLine = cpChatsPage.returnDocElementWithText(GASTRO_DOC);
+        cpChatsPage.searchChatByDoc(SAMPLE_DOC);
+        WebElement chatLine = cpChatsPage.returnDocElementWithText(SAMPLE_DOC);
         assertNotNull(chatLine);
     }
 
@@ -83,7 +83,7 @@ public class CPChatsTests extends BeforeTests {
         ADMIN_LOGIN = testProperties.getProperty("cpLogIn");
         ADMIN_PASS = testProperties.getProperty("cpPass");
 
-        GASTRO_DOC = testProperties.getProperty("cardioDoc");
+        SAMPLE_DOC = testProperties.getProperty("sampleDoc");
         TAT_NAME = testProperties.getProperty("tatName");
         FILTER_CORP = testProperties.getProperty("cpFilterCorp");
         CORPORATION_OPTION_ZERO = testProperties.getProperty("corporationNo"); //changeable

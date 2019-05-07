@@ -46,14 +46,14 @@ public class PayNegativeTests extends BeforeTests {
         this.quitBrowser();
     }
 
-    @Test (priority = 1)
+    @Test(priority = 1)
     public void checkReturnFromMoneta() {
         profilePatientPage = monetaPage.returnProfilePageWithReturnLink();
         assertNotNull(profilePatientPage);
     }
 
     @Parameters({"browser"})
-    @Test (priority = 2)
+    @Test(priority = 2)
     public void checkWrongMonetaSession(String browser) {
         openNewWindow(browser, url);
         MonetaPage monetaPage2 = PageFactory.initElements(driver, MonetaPage.class);

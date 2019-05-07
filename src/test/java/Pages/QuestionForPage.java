@@ -66,7 +66,7 @@ public class QuestionForPage extends BasePage {
         addFilesButton.click();
     }
 
-    private Robot returnRobot(){
+    private Robot returnRobot() {
         robot = null;
         try {
             robot = new Robot();
@@ -77,7 +77,7 @@ public class QuestionForPage extends BasePage {
         return robot;
     }
 
-    public void copyPasteString(String string){
+    public void copyPasteString(String string) {
         StringSelection ss = new StringSelection(string);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
         robot = returnRobot();

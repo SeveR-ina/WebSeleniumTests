@@ -46,7 +46,7 @@ public class HospitalTests extends BeforeTests {
     }
 
     private void getProperties() {
-        CLINIC = testProperties.getProperty("clinic");
-        DOC_FIO = testProperties.getProperty("cardioDoc");
+        CLINIC = testProperties.getProperty("sampleClinic");
+        DOC_FIO = testProperties.getProperty("sampleDoc");
     }
 }

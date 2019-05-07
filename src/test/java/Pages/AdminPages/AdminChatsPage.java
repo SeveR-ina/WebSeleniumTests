@@ -7,14 +7,14 @@ import org.openqa.selenium.support.FindBy;
 
 public class AdminChatsPage extends BasePage {
 
-    @FindBy (className = "logout")
+    @FindBy(className = "logout")
     private WebElement logOutMenuItem;
 
     public AdminChatsPage(WebDriver driver) {
         super(driver);
     }
 
-    public boolean adminChatsAreVisible(){
+    public boolean adminChatsAreVisible() {
         waitForVisibilityOf(logOutMenuItem, returnRandomSeconds());
         return logOutMenuItem.isDisplayed();
     }

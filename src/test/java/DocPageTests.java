@@ -12,7 +12,7 @@ import static org.testng.Assert.assertTrue;
 
 public class DocPageTests extends BeforeTests {
     private DocPage docPage;
-    private String SUPPORT_FIO, PATIENT_EMAIL, ONE_TO_FIVE_NUMBERS, GASTRO_DOC;
+    private String SUPPORT_FIO, PATIENT_EMAIL, ONE_TO_FIVE_NUMBERS, SAMPLE_DOC;
 
     @Parameters({"browser"})
     DocPageTests(String browser) throws IOException {
@@ -48,7 +48,7 @@ public class DocPageTests extends BeforeTests {
 
     @Test
     public void checkShowTheSameDocs() {
-        openDocPage(GASTRO_DOC);
+        openDocPage(SAMPLE_DOC);
         QuestionToDocPage questionToDocPage = docPage.returnQuestionToPage();//открывается страница задания вопроса + слэш undefined
         assertNotNull(questionToDocPage);
     }
@@ -62,7 +62,7 @@ public class DocPageTests extends BeforeTests {
 
     private void getProperties() {
         SUPPORT_FIO = testProperties.getProperty("supportFIO");
-        GASTRO_DOC = testProperties.getProperty("cardioDoc");
+        SAMPLE_DOC = testProperties.getProperty("sampleDoc");
         PATIENT_EMAIL = testProperties.getProperty("correctPatientLogin");
         ONE_TO_FIVE_NUMBERS = testProperties.getProperty("oneToFivePass");
     }

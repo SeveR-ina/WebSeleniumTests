@@ -54,12 +54,12 @@ public class AdminTests extends BeforeTests {
         assertNotNull(homePage);
     }
 
-    private AdminSignInPage returnAdminSignInPage(){
+    private AdminSignInPage returnAdminSignInPage() {
         Assert.assertTrue(homePage.adminPanelLinkIsVisible());
         return homePage.returnAdminSignInPage();
     }
 
-    private void signInOnAdminPanel(AdminSignInPage adminSignInPage, String login, String pass){
+    private void signInOnAdminPanel(AdminSignInPage adminSignInPage, String login, String pass) {
         assertNotNull(adminSignInPage);
         adminSignInPage.signIn(login, pass);
     }

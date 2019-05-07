@@ -23,7 +23,7 @@ public class AdminSignInPage extends BasePage {
         submit();
     }
 
-    public AdminChatsPage returnAdminChatsPage(){
+    public AdminChatsPage returnAdminChatsPage() {
         return PageFactory.initElements(driver, AdminChatsPage.class);
     }
 
