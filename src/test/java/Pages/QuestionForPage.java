@@ -32,8 +32,9 @@ public class QuestionForPage extends BasePage {
         super(driver);
     }
 
-    public void typeToField(String field, String text) {
-        waitForVisibilityOf(healthComplaintsField, returnRandomSeconds());
+    public void typeToField(String field, String text) throws InterruptedException {
+        //waitForVisibilityOfElementLocated(askBtnBy);
+        Thread.sleep(2000);
         if (field.equalsIgnoreCase("healthComplaints")) {
             sendKeys(healthComplaintsField, text);
         } else if (field.equalsIgnoreCase("anamnesis")) {
@@ -98,6 +99,16 @@ public class QuestionForPage extends BasePage {
             return PageFactory.initElements(driver, PatientChatPage.class);
         }
         return PageFactory.initElements(driver, SignInPage.class);
+    }
+
+    public void clearField(String field) {
+        if (field.equalsIgnoreCase("healthComplaints")) {
+            healthComplaintsField.clear();
+        } else if (field.equalsIgnoreCase("anamnesis")) {
+            anamnesisField.clear();
+        } else if (field.equalsIgnoreCase("question")) {
+            questionField.clear();
+        }
     }
 
 }

@@ -50,7 +50,7 @@ public class ChatsTests extends BeforeTests {
     }
 
     @Test(priority = 1)
-    public void askFreeQuestion() {
+    public void askFreeQuestion() throws InterruptedException {
         openQuestionPage(SUPPORT_FIO);
         Assert.assertEquals(questionPage.getChatPrice(), FREE_PRICE);
         questionPage.typeToField("healthComplaints", PATIENT_PASS);
@@ -66,19 +66,19 @@ public class ChatsTests extends BeforeTests {
     }
 
     @Test(priority = 2)
-    public void checkSentStatusByPatient() {
+    public void checkSentStatusByPatient() throws InterruptedException {
         askFreeQuestion();
         Assert.assertTrue(patientChatPage.statusIsSent());
     }
 
     @Test(priority = 3)
-    public void checkReadStatus() {
+    public void checkReadStatus() throws InterruptedException {
         openOrCreateChat();
         assertTrue(patientChatPage.patientMessageIsRead());
     }
 
     @Test(priority = 4)
-    public void cancelChat() {
+    public void cancelChat() throws InterruptedException {
         prepareToCancel();
         patientChatPage.cancelChat(closeChatText);
         patientChatPage.acceptAlertIfExists();
@@ -88,7 +88,7 @@ public class ChatsTests extends BeforeTests {
     }
 
     @Test(priority = 5)
-    public void answerTheQuestion() {
+    public void answerTheQuestion() throws InterruptedException {
         prepareToAnswer();
         signInOnHomePage(SUPPORT_LOGIN, SUPPORT_PASS);
         DocChatsPage docChatsPage = homePage.returnDocChats();
@@ -101,7 +101,7 @@ public class ChatsTests extends BeforeTests {
     }
 
     @Test(priority = 6)
-    public void completeChat() {
+    public void completeChat() throws InterruptedException {
         openOrCreateChat();
         patientChatPage.completeChat();
         patientChatPage.acceptAlertIfExists();
@@ -110,7 +110,7 @@ public class ChatsTests extends BeforeTests {
     }
 
     @Test(priority = 7)
-    public void reportOnChat() {
+    public void reportOnChat() throws InterruptedException {
         openOrCreateChat();
         patientChatPage.reportOnChat(closeChatText);
         patientChatPage.acceptAlertIfExists();
@@ -119,7 +119,7 @@ public class ChatsTests extends BeforeTests {
     }
 
     @Test(priority = 8, enabled = false)
-    public void checkRefundStatus() {
+    public void checkRefundStatus() throws InterruptedException {
         preRefund();
         //SIGN IN ON CP
         CPSignInPage cpSignInPage = returnCPSignInPage();
@@ -147,7 +147,7 @@ public class ChatsTests extends BeforeTests {
         //check if text field is disabled
     }
 
-    private void preRefund() {
+    private void preRefund() throws InterruptedException {
         if (justOpenChat) {
             signInOnHomePage(PATIENT_LOGIN, PATIENT_PASS);
             openPatientChat(CANCELED_CHAT_STATUS);
@@ -157,7 +157,7 @@ public class ChatsTests extends BeforeTests {
         }
     }
 
-    private void openOrCreateChat() {
+    private void openOrCreateChat() throws InterruptedException {
         if (!justOpenChat) {
             answerTheQuestion();
             signOutDoc();
@@ -167,7 +167,7 @@ public class ChatsTests extends BeforeTests {
         closeChatText = PATIENT_PASS;
     }
 
-    private void prepareToAnswer() {
+    private void prepareToAnswer() throws InterruptedException {
         if (!justOpenChat) {
             askFreeQuestion();
             signOutPatient();
@@ -195,7 +195,7 @@ public class ChatsTests extends BeforeTests {
         cpSignInPage.signIn(login, pass);
     }
 
-    private void prepareToCancel() {
+    private void prepareToCancel() throws InterruptedException {
         if (justOpenChat) {
             signInOnHomePage(PATIENT_LOGIN, PATIENT_PASS);
             openPatientChat(NEW_CHAT_STATUS);

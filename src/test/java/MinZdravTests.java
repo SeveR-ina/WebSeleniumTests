@@ -41,7 +41,7 @@ public class MinZdravTests extends BeforeTests {
     }
 
     @Test
-    public void askMinzdravDoc() {
+    public void askMinzdravDoc() throws InterruptedException {
         openQuestionPage(MINZDRAV_DOC_FIO);
         Assert.assertEquals(questionPage.getChatPrice(), FREE_PRICE);
         questionPage.typeToField("healthComplaints", MINZDRAV_DOC_FIO);

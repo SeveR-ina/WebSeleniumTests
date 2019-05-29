@@ -46,7 +46,7 @@ abstract public class BasePage {
         driver.manage().timeouts().implicitlyWait(returnRandomSeconds(), TimeUnit.SECONDS);
     }
 
-    protected void sendKeys(WebElement field, String text) {
+    public void sendKeys(WebElement field, String text) {
         field.click();
         field.clear();
         field.sendKeys(text);

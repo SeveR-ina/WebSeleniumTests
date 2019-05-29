@@ -37,7 +37,7 @@ public class AskPageTests extends BeforeTests {
     }
 
     @Test
-    public void checkAskButtonIsDisabled() {
+    public void checkAskButtonIsDisabled() throws InterruptedException {
         questionPage.typeToField("anamnesis", PATIENT_PASS);
         questionPage.clickOnAddFileBtn();
         questionPage.copyPasteString(PATH_TO_FILE);
@@ -45,11 +45,12 @@ public class AskPageTests extends BeforeTests {
     }
 
     @Test
-    public void checkAskButtonIsEnabled() {
+    public void checkAskButtonIsEnabled() throws InterruptedException {
         questionPage.typeToField("healthComplaints", PATIENT_PASS);
         Assert.assertFalse(questionPage.buttonIsDisabled());
+        //questionPage.clearField("healthComplaints");
         questionPage.typeToField("healthComplaints", "");
-        questionPage.typeToField("question", PATIENT_PASS);
+        questionPage.typeToField("question", SUPPORT_FIO);
         Assert.assertFalse(questionPage.buttonIsDisabled());
     }
 
