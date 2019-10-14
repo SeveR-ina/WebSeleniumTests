@@ -47,7 +47,7 @@ public class CPChatsTests extends BeforeTests {
     public void findChatByDoc() {
         signInOnCP(cpSignInPage, ADMIN_LOGIN, ADMIN_PASS);
         cpChatsPage.searchChatByDoc(SAMPLE_DOC);
-        WebElement chatLine = cpChatsPage.returnDocElementWithText(SAMPLE_DOC); //TODO: element is not attached to the page document
+        WebElement chatLine = cpChatsPage.returnDocElementWithText(SAMPLE_DOC);
         assertNotNull(chatLine);
     }
 

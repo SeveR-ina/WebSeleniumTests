@@ -11,9 +11,6 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class CPChatsPage extends BasePage {
-
-    /*@FindBy(className = "logout")
-    private WebElement logOutMenuItem;*/
     @FindBy(css = "div[data-source='showTestConsultations']")
     private WebElement showTestChatsCheckBox;
     @FindBy(xpath = "//*[contains(text(), 'Справочная портала MedGreat')]")
@@ -34,6 +31,7 @@ public class CPChatsPage extends BasePage {
     private List<WebElement> chatStatuses;
     @FindBy(tagName = "tr")
     private List<WebElement> chatLines;
+    private By firstLineBy = By.tagName("tr");
 
 
     public CPChatsPage(WebDriver driver) {
@@ -97,8 +95,9 @@ public class CPChatsPage extends BasePage {
     }
 
     private void waitFirstLine() {
-        waitForVisibilityOf(chatStatuses.get(1), returnRandomSeconds());
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click()", chatStatuses.get(1));
+        waitForVisibilityOfElementLocated(firstLineBy);
+        //waitForVisibilityOf(chatLines.get(1));
+        //((JavascriptExecutor) driver).executeScript("arguments[0].click()", chatStatuses.get(1));
     }
 
     public void addFilter(String filterName) {

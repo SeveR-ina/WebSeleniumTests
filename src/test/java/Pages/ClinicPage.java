@@ -20,6 +20,7 @@ public class ClinicPage extends BasePage {
     }
 
     public void openDocTab() {
+        waitForVisibilityOf(docTab);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", docTab);
         docTab.click();
         waitForVisibilityOf(docSearchFilter, returnRandomSeconds());

@@ -34,8 +34,8 @@ abstract public class BasePage {
         waitForVisibilityOf(webElement, DEFAULT_TIMEOUT_IN_SECONDS);
     }
 
-    void waitForVisibilityOfElementLocated(By locator) {
-        new WebDriverWait(driver, (long) 10).until(ExpectedConditions.visibilityOfElementLocated(locator));
+    protected void waitForVisibilityOfElementLocated(By locator) {
+        new WebDriverWait(driver,  10).until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     void waitForInvisibilityOfElementLocated(By locator, long timeOutInSeconds) {
